@@ -3,10 +3,21 @@ import Box from '@mui/material/Box'
 import { DataGrid } from '@mui/x-data-grid'
 
 const WeatherDataGrid = ({ weatherData, useCelcius, setUseCelcius }) => {
-  const handleClick = (e) => {
+  const changeUnit = (e) => {
     if (e.field === 'current_temp') {
       setUseCelcius(!useCelcius)
     }
+    console.log(e)
+  }
+
+  const deleteEntry = (e) => {
+    if (e.field === 'delete') {
+      const data = JSON.parse(localStorage.getItem('userData'))
+      const newData = data.filter((entry) => entry !== e.row.city.toLowerCase())
+
+      localStorage.setItem('userData', JSON.stringify(newData))
+    }
+    window.location.reload()
   }
 
   const columns = [
@@ -114,7 +125,8 @@ const WeatherDataGrid = ({ weatherData, useCelcius, setUseCelcius }) => {
         pageSizeOptions={[5]}
         disableRowSelectionOnClick
         disableColumnMenu
-        onColumnHeaderClick={(e) => handleClick(e)}
+        onColumnHeaderClick={(e) => changeUnit(e)}
+        onCellClick={(e) => deleteEntry(e)}
       />
     </Box>
   )

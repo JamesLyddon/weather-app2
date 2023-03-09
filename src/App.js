@@ -135,6 +135,7 @@ function App() {
         weatherData={weatherData}
         useCelcius={useCelcius}
         setUseCelcius={setUseCelcius}
+        getFavWeather={getFavWeather}
       />
     </Container>
   )

@@ -11,12 +11,8 @@ import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded
 
 import { useState } from 'react'
 
-const CityCard = ({
-  currentWeather,
-  setFavouriteLocations,
-  formerFavourite,
-}) => {
-  const [favourited, setFavourited] = useState(formerFavourite)
+const CityCard = ({ currentWeather, setFavouriteLocations }) => {
+  const [favourited, setFavourited] = useState(false)
   const [tempCelcius, setTempCelcius] = useState(true)
 
   const onChange = () => {
@@ -32,6 +28,9 @@ const CityCard = ({
         return tmpArr
       })
     }
+    setTimeout(() => {
+      setFavourited(false)
+    }, 750)
   }
 
   let currentHour = parseInt(currentWeather.location.localtime.slice(-5, -3))
