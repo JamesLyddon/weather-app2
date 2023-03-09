@@ -14,6 +14,8 @@ function App() {
   const [forecastWeather, setForecastWeather] = useState()
   const [favouriteLocations, setFavouriteLocations] = useState(
     JSON.parse(localStorage.getItem('userData'))
+      ? JSON.parse(localStorage.getItem('userData'))
+      : []
   )
   const [favouriteWeather, setFavouriteWeather] = useState([])
   const [useCelcius, setUseCelcius] = useState(true)
