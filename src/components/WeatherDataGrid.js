@@ -109,9 +109,14 @@ const WeatherDataGrid = ({ weatherData, useCelcius, setUseCelcius }) => {
   ]
 
   return (
-    <Box sx={{ height: '50dvh', width: '100%' }}>
+    <Box
+      sx={{
+        height: '50dvh',
+        width: '100%',
+      }}
+    >
       <DataGrid
-        sx={{ marginTop: '20px' }}
+        sx={{ marginTop: '20px', border: 'none' }}
         getRowHeight={() => 'auto'}
         rows={weatherData}
         columns={columns}

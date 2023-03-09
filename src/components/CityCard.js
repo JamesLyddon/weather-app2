@@ -40,7 +40,13 @@ const CityCard = ({ currentWeather, setFavouriteLocations }) => {
       {/* <Item> */}
       <Paper
         elevation={3}
-        sx={{ width: '400px', height: '400px', borderRadius: '5%' }}
+        sx={{
+          backgroundColor: '#ADD9F4',
+          width: '400px',
+          height: '400px',
+          borderRadius: '5%',
+          marginTop: '40px',
+        }}
       >
         {/* Favourite Icon */}
         <Grid textAlign={'end'}>

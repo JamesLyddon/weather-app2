@@ -1,7 +1,7 @@
 import './App.css'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import { Container, Grid, TextField } from '@mui/material'
+import { Fade, Container, Grid, TextField } from '@mui/material'
 
 import CityCard from './components/CityCard'
 import WeatherDataGrid from './components/WeatherDataGrid'
@@ -112,7 +112,14 @@ function App() {
 
   return (
     <Container
-      sx={{ justifyContent: 'center', textAlign: 'center', marginTop: '120px' }}
+      sx={{
+        backgroundColor: '#EBEBD3',
+        justifyContent: 'center',
+        textAlign: 'center',
+        marginTop: '120px',
+        padding: '20px',
+        borderRadius: '10px',
+      }}
     >
       <Grid container direction="column">
         <Grid item sx={{ m: 'auto' }}>
