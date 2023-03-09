@@ -116,17 +116,14 @@ const WeatherDataGrid = ({ weatherData, useCelcius, setUseCelcius }) => {
       }}
     >
       <DataGrid
-        sx={{ marginTop: '20px', border: 'none' }}
+        sx={{
+          marginTop: '20px',
+          border: 'none',
+          color: '#4c4c4c',
+        }}
         getRowHeight={() => 'auto'}
         rows={weatherData}
         columns={columns}
-        initialState={{
-          pagination: {
-            paginationModel: {
-              pageSize: 5,
-            },
-          },
-        }}
         pageSizeOptions={[5]}
         disableRowSelectionOnClick
         disableColumnMenu

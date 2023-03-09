@@ -122,7 +122,7 @@ function App() {
       }}
     >
       <Grid container direction="column">
-        <Grid item sx={{ m: 'auto' }}>
+        <Grid item sx={{ m: '20px auto' }}>
           {forecastWeather && (
             <CityCard
               currentWeather={forecastWeather}
@@ -133,7 +133,9 @@ function App() {
         </Grid>
       </Grid>
       <TextField
-        inputProps={{ style: { textAlign: 'center', margin: '20px' } }}
+        inputProps={{
+          style: { textAlign: 'center' },
+        }}
         variant="standard"
         placeholder="city"
         onChange={(e) => setSearchTerm(e.target.value.trim())}
