@@ -13,6 +13,8 @@ function App() {
   const [favouriteLocations, setFavouriteLocations] = useState([
     'paris',
     'london',
+    'new york',
+    'rome',
   ])
   const [favouriteWeather, setFavouriteWeather] = useState([])
   const [useCelcius, setUseCelcius] = useState(true)
@@ -109,32 +111,32 @@ function App() {
   })
 
   return (
-    <div className="App">
-      <Container sx={{ justifyContent: 'center' }}>
-        <Grid container direction="column">
-          <Grid item sx={{ m: 'auto' }}>
-            {forecastWeather && (
-              <CityCard
-                currentWeather={forecastWeather}
-                setFavouriteLocations={setFavouriteLocations}
-                setFavouriteWeather={setFavouriteWeather}
-              />
-            )}
-          </Grid>
+    <Container
+      sx={{ justifyContent: 'center', textAlign: 'center', marginTop: '120px' }}
+    >
+      <Grid container direction="column">
+        <Grid item sx={{ m: 'auto' }}>
+          {forecastWeather && (
+            <CityCard
+              currentWeather={forecastWeather}
+              setFavouriteLocations={setFavouriteLocations}
+              setFavouriteWeather={setFavouriteWeather}
+            />
+          )}
         </Grid>
-        <TextField
-          inputProps={{ style: { textAlign: 'center', margin: '20px' } }}
-          variant="standard"
-          placeholder="city"
-          onChange={(e) => setSearchTerm(e.target.value.trim())}
-        />
-        <WeatherDataGrid
-          weatherData={weatherData}
-          useCelcius={useCelcius}
-          setUseCelcius={setUseCelcius}
-        />
-      </Container>
-    </div>
+      </Grid>
+      <TextField
+        inputProps={{ style: { textAlign: 'center', margin: '20px' } }}
+        variant="standard"
+        placeholder="city"
+        onChange={(e) => setSearchTerm(e.target.value.trim())}
+      />
+      <WeatherDataGrid
+        weatherData={weatherData}
+        useCelcius={useCelcius}
+        setUseCelcius={setUseCelcius}
+      />
+    </Container>
   )
 }
 

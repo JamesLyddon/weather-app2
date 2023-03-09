@@ -1,12 +1,10 @@
 import React from 'react'
 import Box from '@mui/material/Box'
 import { DataGrid } from '@mui/x-data-grid'
-import { useState } from 'react'
 
 const WeatherDataGrid = ({ weatherData, useCelcius, setUseCelcius }) => {
   const handleClick = (e) => {
-    if (e.field == 'current_temp') {
-      console.log('yup')
+    if (e.field === 'current_temp') {
       setUseCelcius(!useCelcius)
     }
   }
@@ -17,33 +15,34 @@ const WeatherDataGrid = ({ weatherData, useCelcius, setUseCelcius }) => {
       align: 'center',
       field: 'id',
       headerName: 'ID',
-      width: 90,
+      width: 50,
     },
     {
-      headerAlign: 'center',
-      align: 'center',
+      headerAlign: 'right',
+      align: 'right',
       field: 'current_datetime',
       headerName: 'Time',
-      width: 100,
+      width: 80,
     },
     {
       headerAlign: 'center',
       align: 'center',
       field: 'city',
       headerName: 'City',
-      width: 150,
+      width: 200,
     },
     {
       headerAlign: 'center',
       align: 'center',
       field: 'country',
       headerName: 'Country',
-      width: 150,
+      width: 200,
     },
     {
       headerAlign: 'center',
       align: 'center',
       field: 'current_temp',
+      sortable: false,
       headerName: useCelcius ? '\u00B0C' : '\u00B0F',
       width: 100,
     },
@@ -60,6 +59,7 @@ const WeatherDataGrid = ({ weatherData, useCelcius, setUseCelcius }) => {
       align: 'center',
       field: 'plus_one_temp_c',
       headerName: '+ 1hr',
+      sortable: false,
       width: 100,
     },
     {
@@ -67,6 +67,7 @@ const WeatherDataGrid = ({ weatherData, useCelcius, setUseCelcius }) => {
       align: 'center',
       field: 'plus_two_temp_c',
       headerName: '+ 2hr',
+      sortable: false,
       width: 100,
     },
     {
@@ -74,6 +75,7 @@ const WeatherDataGrid = ({ weatherData, useCelcius, setUseCelcius }) => {
       align: 'center',
       field: 'plus_three_temp_c',
       headerName: '+ 3hr',
+      sortable: false,
       width: 100,
     },
     {
@@ -81,17 +83,16 @@ const WeatherDataGrid = ({ weatherData, useCelcius, setUseCelcius }) => {
       align: 'center',
       field: 'plus_four_temp_c',
       headerName: '+ 4hr',
+      sortable: false,
       width: 100,
     },
   ]
 
   return (
-    <Box sx={{ height: 300, width: '100%' }}>
+    <Box sx={{ height: '50dvh', width: '100%' }}>
       <DataGrid
         sx={{ marginTop: '20px' }}
         getRowHeight={() => 'auto'}
-        columnTe
-        cel
         rows={weatherData}
         columns={columns}
         initialState={{
@@ -102,8 +103,8 @@ const WeatherDataGrid = ({ weatherData, useCelcius, setUseCelcius }) => {
           },
         }}
         pageSizeOptions={[5]}
-        checkboxSelection
         disableRowSelectionOnClick
+        disableColumnMenu
         onColumnHeaderClick={(e) => handleClick(e)}
       />
     </Box>
