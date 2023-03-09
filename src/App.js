@@ -6,6 +6,8 @@ import { Container, Grid, TextField } from '@mui/material'
 import CityCard from './components/CityCard'
 import WeatherDataGrid from './components/WeatherDataGrid'
 
+import DeleteIcon from '@mui/icons-material/Delete'
+
 function App() {
   const apiKey = 'd34d7bc68efa4646b33143938230303'
   const [searchTerm, setSearchTerm] = useState('')
@@ -104,6 +106,7 @@ function App() {
         : entry.data.forecast.forecastday[0].hour[
             currentHour + 4
           ].temp_f.toFixed(),
+      delete: DeleteIcon,
     }
   })
 

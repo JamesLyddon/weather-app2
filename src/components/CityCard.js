@@ -1,6 +1,5 @@
 import {
   Checkbox,
-  Container,
   Grid,
   FormControlLabel,
   Paper,
