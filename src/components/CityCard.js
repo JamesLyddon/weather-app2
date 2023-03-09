@@ -29,7 +29,7 @@ const CityCard = ({
       setFavouriteLocations((prev) => {
         if (prev && prev.includes(location)) return prev
         const tmpArr = [location, ...prev]
-
+        localStorage.setItem('userData', JSON.stringify(tmpArr))
         return tmpArr
       })
     }

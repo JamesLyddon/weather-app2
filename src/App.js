@@ -10,12 +10,9 @@ function App() {
   const apiKey = 'd34d7bc68efa4646b33143938230303'
   const [searchTerm, setSearchTerm] = useState('')
   const [forecastWeather, setForecastWeather] = useState()
-  const [favouriteLocations, setFavouriteLocations] = useState([
-    'paris',
-    'london',
-    'new york',
-    'rome',
-  ])
+  const [favouriteLocations, setFavouriteLocations] = useState(
+    JSON.parse(localStorage.getItem('userData'))
+  )
   const [favouriteWeather, setFavouriteWeather] = useState([])
   const [useCelcius, setUseCelcius] = useState(true)
 
@@ -25,7 +22,7 @@ function App() {
 
   useEffect(() => {
     getFavWeather()
-  }, [])
+  }, [favouriteLocations])
 
   useEffect(() => {
     console.log(forecastWeather)
